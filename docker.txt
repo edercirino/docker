@@ -3,3 +3,43 @@
 docker run hello-world
     Saber se o docker está funcionando
 
+docker ps
+    Visualizar containers em execução
+
+docker ps -a
+    visualizar todos os containers existentes
+
+docker stop <id do container>
+    parar um container
+
+docker rm <id do container>
+    remove um container
+
+docker rmi <id da imagem>
+    remove uma imagem
+
+docker run -d <nome do container>
+    passando a opção -d executa um container em segundo plano
+
+docker run -d -p 8080:80 <nome do container>
+    passando a opção -p para expor portas do container. Tudo na porta 8080 do host será
+    redirecionado para a porta 80 do container
+
+docker run -d -p 8080:80 --name <nome dado ao container> <nome do container>
+    passando o parametro --name é possivel dar um nome a um container
+
+docker exec <nome do container>
+    executar um comando dentro de um container
+
+docker exec <nome do container> ls
+    executa o comando ls dentro do container
+
+docker exec -it <nome do container> /bin/bash
+    sobe um container, o comando exec entra no container passando o comando /bin/bash
+
+docker commit <nome do container> <nome da imagem:numero da versao>
+        docker commit webserver nginxdefault:v1
+    criar uma imagem apartir de um container
+
+docker run -d -p 8081:80 <nome da imagem criada a partir do container>
+    criar um container apartir de uma imagem criada
