@@ -1,0 +1,5 @@
+####################### COMANDOS DOCKER #######################
+
+docker run hello-world
+    Saber se o docker está funcionando
+
