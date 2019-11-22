@@ -43,3 +43,25 @@ docker commit <nome do container> <nome da imagem:numero da versao>
 
 docker run -d -p 8081:80 <nome da imagem criada a partir do container>
     criar um container apartir de uma imagem criada
+
+docker run -it -v /data --name <nome dado ao container> <nome do container>
+    parametro -v cria um volume no container
+
+docker inspect <nome do container>
+    inspecionar container
+
+docker restart <nome do container>
+    reiniciar container
+
+docker run -d -p 8084:80 -v <caminho da pasta a ser mapeada> : <caminho da pasta destino> --name <nome dado ao container> <nome do container>
+    compartilhando volumes
+
+docker run -d -p 8085:80 --volumes-from <nome do container> --name <nome do outro container> <container>
+    compartilhar um diretório atual para outro container através de volumes
+
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=<senha do banco> -e MYSQL_DATABASE=nome do banco -d mysql:5.7
+    subir banco de dados mysql como container
+    
+docker run --name <nome do container> --link <nome do container>:<container> -d -p 8088:80 <container>
+        docker run --name mysql -e MYSQL_ROOT_PASSWORD=andromeda -e MYSQL_DATABASE=wordpressDB -d mysql:5.7
+    Linkar imagens
