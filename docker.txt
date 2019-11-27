@@ -59,9 +59,25 @@ docker run -d -p 8084:80 -v <caminho da pasta a ser mapeada> : <caminho da pasta
 docker run -d -p 8085:80 --volumes-from <nome do container> --name <nome do outro container> <container>
     compartilhar um diretório atual para outro container através de volumes
 
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=<senha do banco> -e MYSQL_DATABASE=nome do banco -d mysql:5.7
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=<senha do banco> -e MYSQL_DATABASE=<nome do banco> -d mysql:5.7
+     docker run --name mysql -e MYSQL_ROOT_PASSWORD=andromeda -e MYSQL_DATABASE=wordpressDB -d mysql:5.7
     subir banco de dados mysql como container
     
-docker run --name <nome do container> --link <nome do container>:<container> -d -p 8088:80 <container>
-        docker run --name mysql -e MYSQL_ROOT_PASSWORD=andromeda -e MYSQL_DATABASE=wordpressDB -d mysql:5.7
+docker run --name <nome do container> --link <nome do container>:<container> -d -p <porta da maquina fisica>:<porta do container> <container>
+       docker run --name wordpress --link dbserver:mysql -d -p 8088:80 wordpress
     Linkar imagens
+
+### Dockerfile é um arquivo que permite criar imagens de um container docker de maneira declarativa e mais produtiva ###
+
+docker build -t <nome para imagem>/<nome do container>
+    constrói uma image (parametro -t define uma tag )
+
+## verificar logs de um container que não subiu ##
+    docker ps -a (copiar o id do container)
+    docker logs <id do container>
+
+## Dockercompose ##
+
+    arquivo usado para definir quais serviços serão utilizados na hora de subir um container.
+
+Para subir os serviços, rode o comando docker-compose up -d
