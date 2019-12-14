@@ -62,7 +62,7 @@
      * `docker run --name mysql -e MYSQL_ROOT_PASSWORD=andromeda -e MYSQL_DATABASE=wordpressDB -d mysql:5.7`
      * subir banco de dados mysql como container
     
-`* docker run --name <nome do container> --link <nome do container>:<container> -d -p <porta da maquina fisica>:<porta do container> <container>`
+* `docker run --name <nome do container> --link <nome do container>:<container> -d -p <porta da maquina fisica>:<porta do container> <container>`
        * `docker run --name wordpress --link dbserver:mysql -d -p 8088:80 wordpress`
        * Linkar imagens
 
