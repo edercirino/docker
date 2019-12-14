@@ -63,8 +63,8 @@
      * subir banco de dados mysql como container
     
 * `docker run --name <nome do container> --link <nome do container>:<container> -d -p <porta da maquina fisica>:<porta do container> <container>`
-       * `docker run --name wordpress --link dbserver:mysql -d -p 8088:80 wordpress`
-       * Linkar imagens
+    * `docker run --name wordpress --link dbserver:mysql -d -p 8088:80 wordpress`
+    * Linkar imagens
 
 * Dockerfile é um arquivo que permite criar imagens de um container docker de maneira declarativa e mais produtiva 
 
